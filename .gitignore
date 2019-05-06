@@ -2,3 +2,4 @@ develop
 .docker
 docker-compose.yml
 .env
+/vendor/
