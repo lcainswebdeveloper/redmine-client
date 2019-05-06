@@ -15,5 +15,25 @@ final class LogIssueTest extends TestCase
         $users = $client->getUsers();
 
         $this->assertTrue(isset($users->users));
+
+        $client->createIssue([
+
+        ]);
+{
+    "project_id":"",
+    "tracker_id":"",
+    "status_id":"",
+    "priority_id":"",
+    "subject":"",
+    "description":"",
+    "category_id":"",
+    "fixed_version_id":"",
+    "assigned_to_id":"",
+    "parent_issue_id":"",
+    "custom_fields":"",
+    "watcher_user_ids":"",
+    "is_private":"",
+    "estimated_hours":""
+}
     }
 }
