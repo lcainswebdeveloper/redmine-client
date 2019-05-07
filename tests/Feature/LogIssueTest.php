@@ -8,32 +8,13 @@ final class LogIssueTest extends TestCase
     /** @test **/
     public function we_should_be_able_to_validate_and_create_inbound_messages_for_a_client_via_the_api()
     {
-        $client = new Redmine('http://172.17.0.1:8007', '8eeae8ea46345d36379e7d60bef2bd3c1df113f3');
+        $client = new Redmine(env('REDMINE_BASE_URL'), env('REDMINE_API_KEY'));
 
-        // $all = $client->user->all();
-        // $listing = $client->user->listing();
         $users = $client->getUsers();
-
         $this->assertTrue(isset($users->users));
+        $this->assertTrue($users->code == 200);
 
-        $client->createIssue([
-
-        ]);
-{
-    "project_id":"",
-    "tracker_id":"",
-    "status_id":"",
-    "priority_id":"",
-    "subject":"",
-    "description":"",
-    "category_id":"",
-    "fixed_version_id":"",
-    "assigned_to_id":"",
-    "parent_issue_id":"",
-    "custom_fields":"",
-    "watcher_user_ids":"",
-    "is_private":"",
-    "estimated_hours":""
-}
+        // $client->createIssue([
+        // ]);
     }
 }

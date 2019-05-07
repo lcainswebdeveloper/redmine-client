@@ -15,7 +15,8 @@
     },
     "require": {
         "guzzlehttp/guzzle": "^6.3",
-        "kbsali/redmine-api": "~1.0"
+        "kbsali/redmine-api": "~1.0",
+        "vlucas/phpdotenv": "^3.3"
     },
     "require-dev": {
         "phpunit/phpunit": "^8.1"

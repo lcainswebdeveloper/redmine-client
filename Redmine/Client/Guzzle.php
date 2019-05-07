@@ -36,13 +36,23 @@ class Guzzle
 
     public function get(string $url, array $headers = [])
     {
-        $sentHeaders = $this->setRequestData($headers);
+        try {
+            $sentHeaders = $this->setRequestData($headers);
 
-        $response = $this->client->get($url, $sentHeaders);
-        $this->setStatus($response->getStatusCode());
-        $this->setApiResponse($response);
+            $response = $this->client->get($url, $sentHeaders);
+            $this->setStatus($response->getStatusCode());
+            $this->setApiResponse(json_decode($response->getBody()));
 
-        return $this;
+            return $this;
+        } catch (\Exception $e) {
+            $this->setStatus($e->getCode());
+            $this->setApiResponse([
+                'error' => $e->getMessage(),
+                'code' => $e->getCode(),
+            ]);
+
+            return $this;
+        }
     }
 
     /**
@@ -120,7 +130,7 @@ class Guzzle
      */
     public function getApiResponse()
     {
-        return json_decode($this->apiResponse->getBody());
+        return $this->apiResponse;
     }
 
     /**
@@ -130,6 +140,8 @@ class Guzzle
      */
     public function setApiResponse($apiResponse)
     {
+        $apiResponse = (object) $apiResponse;
+        $apiResponse->code = $this->getStatus();
         $this->apiResponse = $apiResponse;
 
         return $this;
