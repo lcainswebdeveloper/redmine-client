@@ -55,6 +55,30 @@ class Guzzle
         }
     }
 
+    public function post(string $url, array $postData = [], array $headers = [])
+    {
+        try {
+            $body = ['body' => json_encode($postData)];
+            $sentHeaders = $this->setRequestData($headers);
+            $client = new \GuzzleHttp\Client($sentHeaders);
+            $response = $client->post($url, $body);
+            $this->setStatus($response->getStatusCode());
+            $this->setApiResponse(json_decode($response->getBody()));
+
+            return $this;
+        } catch (\Exception $e) {
+            $this->setStatus($e->getCode());
+            $this->setApiResponse([
+                'exception' => get_class($e),
+                'error' => $e->getMessage(),
+                'data' => json_decode($e->getResponse()->getBody()->getContents()),
+                'code' => $e->getCode(),
+            ]);
+
+            return $this;
+        }
+    }
+
     /**
      * Get the value of apikey.
      */
