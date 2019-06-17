@@ -8,9 +8,9 @@ At the moment this is the only functionality but we can expand in due course or 
 ### Configuration
 - All you will need to do is set a ```REDMINE_BASE_URL```for your Redmine instance and your ```REDMINE_API_KEY``` which you can create inside of your Redmine UI. I'd recommend you put this in an env file. Optionally you can also add a `REDMINE_PROJECT_ID` which can be used as a default if we don't provide a `project_id` on any request
 
-### To create an issue
+### To update an issue
 This service delegates straight to the Redmine API itself so arguments can be passed as expected for all calls. Please feel free to look at the tests for usage also.   
-Creating an issue (simple example):
+Updating an issue (simple example):
 ```
 use LCainsWebdeveloper\Redmine;
 $client = new Redmine(REDMINE_BASE_URL, REDMINE_API_KEY);
