@@ -1,8 +1,8 @@
 <?php
 
-namespace Redmine;
+namespace LCainsWebDeveloper;
 
-use Redmine\Client\Guzzle;
+use LCainsWebDeveloper\Client\Guzzle;
 
 class Redmine
 {

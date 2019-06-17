@@ -1,6 +1,6 @@
 <?php
 
-namespace Redmine\Client;
+namespace LCainsWebDeveloper\Client;
 
 class Guzzle
 {

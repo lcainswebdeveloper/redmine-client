@@ -12,7 +12,7 @@ At the moment this is the only functionality but we can expand in due course or 
 This service delegates straight to the Redmine API itself so arguments can be passed as expected for all calls. Please feel free to look at the tests for usage also.   
 Creating an issue (simple example):
 ```
-use Redmine\Redmine;
+use LCainsWebdeveloper\Redmine;
 $client = new Redmine(REDMINE_BASE_URL, REDMINE_API_KEY);
 $validIssue = $client->createIssue([
     'project_id' => 1, //required - must exist also - can default to your REDMINE_PROJECT_ID env var if given'
@@ -31,7 +31,7 @@ The response mirrors the response from the API itself
 This service delegates straight to the Redmine API itself so arguments can be passed as expected for all calls. Please feel free to look at the tests for usage also.   
 Creating an issue (simple example):
 ```
-use Redmine\Redmine;
+use LCainsWebdeveloper\Redmine;
 $client = new Redmine(REDMINE_BASE_URL, REDMINE_API_KEY);
 $validIssue = $client->createIssue([
     'project_id' => 1, //required - must exist also

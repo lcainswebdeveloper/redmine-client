@@ -1,6 +1,6 @@
 <?php
 
-use Redmine\Redmine;
+use LCainsWebDeveloper\Redmine;
 use PHPUnit\Framework\TestCase;
 
 final class IssueTest extends TestCase

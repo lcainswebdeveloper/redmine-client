@@ -2,15 +2,13 @@
     "name": "lcainswebdeveloper/redmine-client",
     "description": "Simple service for logging bugs in redmine",
     "type": "library",
-    "authors": [
-        {
-            "name": "Lewis Cains",
-            "email": "lewis@lcainswebdeveloper.co.uk"
-        }
-    ],
+    "authors": [{
+        "name": "Lewis Cains",
+        "email": "lewis@lcainswebdeveloper.co.uk"
+    }],
     "autoload": {
         "psr-4": {
-            "Redmine\\": "Redmine/"
+            "LCainsWebDeveloper\\": "LCainsWebDeveloper/"
         }
     },
     "require": {
