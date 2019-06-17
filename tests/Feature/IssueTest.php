@@ -3,7 +3,7 @@
 use Redmine\Redmine;
 use PHPUnit\Framework\TestCase;
 
-final class LogIssueTest extends TestCase
+final class IssueTest extends TestCase
 {
     /** @test **/
     public function we_should_be_able_to_get_redmine_users()
@@ -27,10 +27,23 @@ final class LogIssueTest extends TestCase
             'priority_id' => 1, //required
             'subject' => 'My test issue', //required
             'description' => 'A test description',
-            'assigned_to_id' => 1,
+            'assigned_to_id' => 5,
             'estimated_hours' => 3,
         ]);
+
         $this->assertTrue($validIssue->code == 201);
+        $this->assertTrue(!isset($validIssue->data->errors));
+    }
+
+    /** @test **/
+    public function we_should_be_able_to_update_an_issue_in_redmine()
+    {
+        $client = new Redmine(env('REDMINE_BASE_URL'), env('REDMINE_API_KEY'));
+        //PLEASE MAKE SURE ALL REQUIRED VALUES BELOW EXIST
+        $validIssue = $client->updateIssue(1, [
+            'notes' => 'Here are some notes from a test',
+        ]);
+        $this->assertTrue($validIssue->code == 200);
         $this->assertTrue(!isset($validIssue->data->errors));
     }
 }

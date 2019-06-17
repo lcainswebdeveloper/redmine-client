@@ -6,7 +6,7 @@ At the moment this is the only functionality but we can expand in due course or 
 - composer ```composer require lcainswebdeveloper/redmine-client```
 
 ### Configuration
-- All you will need to do is set a ```BASE_URL```for your Redmine instance and your ```REDMINE_API_KEY``` which you can create inside of your Redmine UI. I'd recommend you put this is env file
+- All you will need to do is set a ```BASE_URL```for your Redmine instance and your ```REDMINE_API_KEY``` which you can create inside of your Redmine UI. I'd recommend you put this in an env file
 
 ### To create an issue
 This service delegates straight to the Redmine API itself so arguments can be passed as expected for all calls. Please feel free to look at the tests for usage also.   
