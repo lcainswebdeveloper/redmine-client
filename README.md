@@ -14,7 +14,7 @@ Creating an issue (simple example):
 ```
 use LCainsWebdeveloper\Redmine;
 $client = new Redmine(REDMINE_BASE_URL, REDMINE_API_KEY);
-$validIssue = $client->createIssue([
+$validIssue = $client->updateIssue([
     'project_id' => 1, //required - must exist also - can default to your REDMINE_PROJECT_ID env var if given'
     'tracker_id' => 1, //required - must exist also
     'status_id' => 1, //required - must exist also
