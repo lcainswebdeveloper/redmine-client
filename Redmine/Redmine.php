@@ -24,6 +24,9 @@ class Redmine
     */
     public function createIssue($issue)
     {
+        $updateData = $issue + [
+            'project_id' => env('REDMINE_PROJECT_ID', null),
+        ];
         $response = $this->client->post('issues.json', [
             'issue' => $issue,
         ]);
@@ -33,15 +36,15 @@ class Redmine
 
     /*
     Refer to https://www.redmine.org/projects/redmine/wiki/Rest_Issues#Creating-an-issue
-    for request details, also LogIssueTest.php for a working example
+    for request details, also IssueTest.php for a working example
     */
     public function updateIssue(int $issueId, $issue)
     {
-        $updateData = $issue + [
+        $createData = $issue + [
             'project_id' => env('REDMINE_PROJECT_ID', null),
         ];
         $response = $this->client->put('issues/'.$issueId.'.json', [
-            'issue' => $issue,
+            'issue' => $createData,
         ]);
 
         return $response->getApiResponse();

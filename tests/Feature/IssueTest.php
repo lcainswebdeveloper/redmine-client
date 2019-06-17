@@ -21,7 +21,7 @@ final class IssueTest extends TestCase
         $client = new Redmine(env('REDMINE_BASE_URL'), env('REDMINE_API_KEY'));
         //PLEASE MAKE SURE ALL REQUIRED VALUES BELOW EXIST
         $validIssue = $client->createIssue([
-            'project_id' => 1, //required
+            'project_id' => 1, //required but defaults to env('REDMINE_PROJECT_ID') if available
             'tracker_id' => 1, //required
             'status_id' => 1, //required
             'priority_id' => 1, //required

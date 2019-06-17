@@ -3,4 +3,4 @@ develop
 docker-compose.yml
 .env
 /vendor/
-redmine-data
+.phpunit.result.cache 
