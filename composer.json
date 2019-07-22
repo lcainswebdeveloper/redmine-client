@@ -1,5 +1,6 @@
 {
     "name": "lcainswebdeveloper/redmine-client",
+    "version": "1.0.0",
     "description": "Simple service for logging bugs in redmine",
     "type": "library",
     "authors": [{
